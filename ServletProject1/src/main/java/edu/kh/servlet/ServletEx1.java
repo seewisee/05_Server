@@ -31,6 +31,9 @@ public class ServletEx1 extends HttpServlet {
 
 		System.out.println(inputName);
 		System.out.println(inputAge);
+		
+		
+		
 	}
 
 }
