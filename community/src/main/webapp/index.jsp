@@ -73,7 +73,8 @@
 							<fieldset id="id-pw-area">
 								<section>
 
-									<input type="text" name="inputEmail" placeholder="아이디(이메일)">
+									<input type="text" name="inputEmail" placeholder="아이디(이메일)" value="${cookie.saveId.value}">
+																										<%-- 현재 페이지 쿠키 중 "seveId"의 내용을 출력 --%>
 									<input type="password" name="inputPw" placeholder="비밀번호">
 								</section>
 								<section>
@@ -86,7 +87,18 @@
 								<a href="#">회원가입</a> <span>|</span> <a href="#">ID/PW 찾기</a>
 							</article>
 
-							<label> <input type="checkbox">아이디 저장
+							<%-- 쿠키에 saveId가 있는 경우 --%>
+							<c:if test = "${!empty cookie.saveId.value}">
+
+								<%--chk 변수 생성(page scope) page scope가 기본값 --%>
+								<c:set var = "chk" value = "checked"/>
+							
+
+
+
+							</c:if>
+
+							<label> <input type="checkbox" name = "saveId" ${chk} >아이디 저장
 							</label>
 						</form>
 					</c:when>
@@ -104,7 +116,9 @@
 					<div class = "my-info">
 					<div>
 						<a href = "#" id = "nickname">${loginMember.memberNickname}</a>
-						<a href = "#" id = "logout-btn">로그아웃</a>
+
+
+						<a href = "/community/member/logout" id = "logout-btn" >로그아웃</a>
 					</div>
 					
 					<p>
