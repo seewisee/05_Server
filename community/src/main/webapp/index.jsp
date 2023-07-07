@@ -84,7 +84,17 @@
 
 							<!-- 회원가입, ID/PW 찾기 영역 -->
 							<article id="signup-find-area">
-								<a href="#">회원가입</a> <span>|</span> <a href="#">ID/PW 찾기</a>
+
+								<!-- WEB-INF 폴더는 외부로 부터 직접적으로 요청할 수 없는 폴더 
+									왜? 중요한 코드 (자바, sql, 설정관련)가 위치하는 폴더로서
+									외부로부터 접근을 차단하기 위해서
+
+									-> 대신 Servlet을 이용한 내부 접근(forward)은 가능
+								-->
+								<!-- <a href="/community/WEB-INF/views/member/signUp.jsp">회원가입</a> <span>|</span> <a href="#">ID/PW 찾기</a> -->
+								<a href="/community/member/signUp">회원가입</a> 
+								<span>|</span> 
+								<a href="#">ID/PW 찾기</a>
 							</article>
 
 							<%-- 쿠키에 saveId가 있는 경우 --%>
@@ -142,5 +152,31 @@
 			<a href="#">개인정보처리방침</a> <span>|</span> <a href="#">고객센터</a>
 		</article>
 	</footer>
+	
+	<%--session 에 message 속성이 존재하는 경우 alert창으로 해당 내용을 출력 --%>
+	
+	<c:if test = "${!empty sessionScope.message }">
+	
+	<script>
+	 alert("${message}");
+	 
+	 // EL 작성 시 scope를 지정하지 않으면
+	 
+	 // page -> request -> session -> application 순서로 검색하여
+	 // 일치하는 속성이 있으면 출력
+	</script>
+	
+	<%--message 1회 출력 후 session에서 제거 --%>
+	<c:remove var="message" scope = "session"/>
+	
+	
+	</c:if>
+	
+	
+	
+	
+	
+	
+	
 </body>
 </html>
