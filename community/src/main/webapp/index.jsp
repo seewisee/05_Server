@@ -12,42 +12,19 @@
 <script src="https://kit.fontawesome.com/c8b00b753f.js"
 	crossorigin="anonymous"></script>
 </head>
-<body>
-	<main>
-		<header>
-			<!-- 클릭 시 메인 페이지로 이동하는 로고 -->
-			<section>
-				<a href="#"> <img id="home-logo"
-					src="resources/images/images/KakaoTalk_20230613_140545288.jpg">
-				</a>
-			</section>
-			<!-- header의 두번째 자식 div -->
-			<section>
-				<article class="search-area">
-					<!-- form 내부 input 태그 값을 서버 또는 페이지로 전달 -->
-					<form action="#" name="search-form">
-						<!-- fieldset: form 내부에서 input을 종류별로 묶는 용도로 많이 사용 -->
-						<fieldset>
-							<input type="search" id="query" name="query"
-								placeholder="검색어를 입력해 주세요." autocomplete="off">
-							<!-- 검색 버튼 -->
-							<button type="submit" id="search-btn"
-								class="fa-solid fa-magnifying-glass"></button>
-						</fieldset>
-					</form>
-				</article>
-			</section>
-			<section></section>
-		</header>
-		<nav>
-			<ul>
-				<li><a href="#">공지사항</a></li>
-				<li><a href="#">자유 게시판</a></li>
-				<li><a href="#">질문 게시판</a></li>
-				<li><a href="#">FAQ</a></li>
-				<li><a href="#">1:1 문의</a></li>
-			</ul>
-		</nav>
+<main>
+	<!-- jsp : include 태그  
+		다른 jsp 파일의 내용을 해당 위치에 포함 시킴
+		
+		* 경로 작성 시
+			외부 요청 주소 X (인터넷 주소, 최상위 : /community
+			내부 접근 경로 O (파일 경로, 최상위 : /webapp)	
+	-->
+	
+		<!--재부 접근 경로  -->
+		<jsp:include page = "/WEB-INF/views/common/header.jsp"/>
+		
+		
 		<section class="content">
 			<section class="content-1">
 				loginMember : ${sessionScope.loginMember }
@@ -125,7 +102,7 @@
 					<!-- 회원 정보 + 로그아웃 버튼 -->
 					<div class = "my-info">
 					<div>
-						<a href = "#" id = "nickname">${loginMember.memberNickname}</a>
+						<a href = "${contextPath}/member/myPage/info" id = "nickname">${loginMember.memberNickname}</a>
 
 
 						<a href = "/community/member/logout" id = "logout-btn" >로그아웃</a>
@@ -172,7 +149,7 @@
 	
 	</c:if>
 	
-	
+	<jsp:include page = "/WEB-INF/views/common/footer.jsp"/>
 	
 	
 	

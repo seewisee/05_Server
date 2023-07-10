@@ -5,11 +5,13 @@ import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
+import javax.servlet.http.HttpServletRequest;
 
 /* 필터(Filter)
  * 
@@ -66,6 +68,19 @@ public class EncodingFilter extends HttpFilter implements Filter {
 		
 		// 모든 응답의 문자 인코딩을 UTF-8로 설정
 		response.setCharacterEncoding("UTF-8");
+		
+		// application scope로 최상위 경로를 얻어올 수 있는 값 세팅
+		
+		// application 내장 객체 얻어오기
+		ServletContext application = request.getServletContext();
+		
+		// 최상위 주소 얻어오기
+		String contextPath = ((HttpServletRequest)request).getContextPath();
+								// 다운캐스팅
+		
+		// 세팅
+		application.setAttribute("contextPath", contextPath);
+		
 		
 		// 연결된 다음 필터 수행(없으면 Servelt 수행)
 		chain.doFilter(request, response);
