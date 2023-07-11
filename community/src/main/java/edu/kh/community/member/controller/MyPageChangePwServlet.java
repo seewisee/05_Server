@@ -65,13 +65,13 @@ public class MyPageChangePwServlet extends HttpServlet {
 				// session scope -> key "message", value = "비밀번호 성공!"
 				// path = "내 정보 페이지 주소"
 				session.setAttribute("message", "비밀번호 성공!");
-				path = "/WEB-INF/views/member/myPage-info.jsp";
+				path = req.getContextPath() + "/member/myPage/info";
 				
 			}else { // 실패
 				// session scope -> key "message", value = "현재 비밀번호가 일치하지 않습니다"
 				// path = "비밀번호 변경 페이지 주소"
 				session.setAttribute("message", "현재 비밀번호가 일치하지 않습니다");
-				path = "/WEB-INF/views/member/myPage-changePw.jsp";
+				path = req.getContextPath() + "/member/myPage/changePw";
 				
 			}
 			

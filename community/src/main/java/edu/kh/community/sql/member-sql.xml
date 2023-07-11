@@ -36,6 +36,13 @@
 	AND MEMBER_PW = ?
 	
 	</entry>
+	
+	<entry key = "secession">
+	UPDATE MEMBER SET
+	SECESSION_FL = 'Y'
+	WHERE MEMBER_NO = ?
+	AND MEMBER_PW = ?
+	</entry>
 
 
 </properties>

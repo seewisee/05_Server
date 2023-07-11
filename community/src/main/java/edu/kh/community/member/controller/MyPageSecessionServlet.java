@@ -66,9 +66,9 @@ public class MyPageSecessionServlet extends HttpServlet {
 				
 				// [해결방법]
 				// 새로운 세션을 얻어와서 메세지 세팅
-				
 				session = req.getSession(); // 무효화 후 새로 생성된 세션 얻어오기
 				
+				session.setAttribute("message", "탈퇴되었습니다.");
 				
 				
 			}else { //실패
