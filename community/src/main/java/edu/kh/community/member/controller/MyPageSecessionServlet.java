@@ -49,7 +49,6 @@ public class MyPageSecessionServlet extends HttpServlet {
 			String path = null; //리다이렉트 경로
 			
 			if(result > 0) { //성공
-				session.setAttribute("message", "탈퇴 되었습니다.");
 				path = req.getContextPath(); // 메인 페이지
 				
 				Cookie c = new Cookie("saveId", ""); // 쿠키 생성
