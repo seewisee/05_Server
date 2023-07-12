@@ -41,7 +41,7 @@
                      http://localhost:8080/community/member/myPage/secession  (POST)
                 -->
 
-                <form action="secession" method="post" name="myPage-form">
+                <form action="secession" method="post" name="myPage-form" onsubmit="return secessionValidate()">
 
                     
                     <div class="myPage-row">
@@ -94,6 +94,7 @@
 
    <!-- footer.jsp연결 -->
    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+   <script src="${contextPath}/resources/js/member/myPage.js"></script>
 
 </body>
 </html>

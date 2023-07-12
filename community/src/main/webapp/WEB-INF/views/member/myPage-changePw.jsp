@@ -39,7 +39,7 @@
                     http://localhost:8080/community/member/myPage/changePw (POST) 
                 -->
 
-                <form action="changePw" method="POST" name="myPage-form">
+                <form action="changePw" method="POST" name="myPage-form" onsubmit="return changePwValidate()">
 
                     <div class="myPage-row">
                         <label>현재 비밀번호</label>
@@ -48,12 +48,12 @@
                     
                     <div class="myPage-row">
                         <label>새 비밀번호</label>
-                        <input type="password" name="newPw" maxlength="30">
+                        <input type="password" name="newPw" id="newPw" maxlength="30">
                     </div>
                     
                     <div class="myPage-row">
                         <label>새 비밀번호 확인</label>
-                        <input type="password" name="newPwConfirm" maxlength="30">
+                        <input type="password" name="newPwConfirm" id="newPwConfirm" maxlength="30">
                     </div>
 
                     <button id="info-update-btn">수정하기</button>
@@ -68,5 +68,6 @@
     </main>
     
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+    <script src="${contextPath}/resources/js/member/myPage.js"></script>
 </body>
 </html>

@@ -37,7 +37,7 @@
                 <h1 class="myPage-title">내 정보</h1>
                 <span class="myPage-explanation">원하는 회원정보를 수정할 수 있습니다.</span>
                 
-                <form action="info" method="post" name="myPage-form">
+                <form action="info" method="post" name="myPage-form" onsubmit="return infoValidate()">
 
                     
                     <div class="myPage-row">
@@ -73,17 +73,19 @@
                         <input type="text" name="memberAddress" value="${addr[2] }">
                     </div>
 
-                    <button id="info-update-btn">수정하기</button>
+                    <button id="info-update-btn" >수정하기</button>
 
 
                 </form>
             </section>
         </section>
-       
     </main>
 
    <!-- footer.jsp연결 -->
    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+
+   <!-- myPage.js 추가 -->
+   <script src="${contextPath}/resources/js/member/myPage.js"></script>
 
 </body>
 </html>

@@ -44,7 +44,7 @@
 						<!-- 절대경로 : /community/member/login  -->
 
 						<!-- 상대 경로 (index.jsp)기준  -->
-						<form action="member/login" method="post" name="login-form">
+						<form action="member/login" method="post" name="login-form" onsubmit = "return loginValidate()">
 
 							<!-- 아이디(이메일)/비밀번호/로그인 버튼 영역 -->
 							<fieldset id="id-pw-area">
@@ -85,7 +85,7 @@
 
 							</c:if>
 
-							<label> <input type="checkbox" name = "saveId" ${chk} >아이디 저장
+							<label> <input type="checkbox" name = "saveId" ${chk} id="saveId" >아이디 저장
 							</label>
 						</form>
 					</c:when>
@@ -150,6 +150,10 @@
 	</c:if>
 	
 	<jsp:include page = "/WEB-INF/views/common/footer.jsp"/>
+
+
+	<!-- main.js 연결 -->
+	<script src="${contextPath}/resources/js/main.js"></script>
 	
 	
 	
