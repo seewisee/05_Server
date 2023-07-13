@@ -30,7 +30,7 @@ varStatus: 현재 반복에 해당되는 상태 정보
 	<hr>
 	<h3>일반 for 문 형식으로 사용</h3>
 	<c:forEach var="i" begin="1" end="6" step="1">
-		<h${i}>${i}번째 반복 중입니다... </h${i}>
+		<h ${i}>${i}번째 반복 중입니다... </h${i}>
 	</c:forEach>
 	<table border=1>
 		<c:forEach var="i" begin="1" end="10" step="1">

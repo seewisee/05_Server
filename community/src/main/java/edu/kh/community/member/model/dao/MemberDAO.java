@@ -199,4 +199,43 @@ public int secession(Connection conn, int memberNo, String memberPw) throws Exce
 	return result;
 }
 
+/** 이메일 중복 검사 DAO
+ * @param conn
+ * @param memberEmail
+ * @return result
+ * @throws Exception
+ */
+public int emailDupCheck(Connection conn, String memberEmail) throws Exception{
+	
+	int result = 0;
+	
+	try {
+		
+		// SQL 얻어오기
+		String sql = prop.getProperty("emailDupCheck");
+		
+		// pstmt 생성
+		pstmt = conn.prepareStatement(sql);
+        
+		// 위치 홀더에 알맞은 값 세팅
+        pstmt.setString(1, memberEmail);
+        
+        // SQL(SELECT) 수행 후 결과 반환 받기
+        rs = pstmt.executeQuery();
+        
+        // rs.next()로 조회결과를 확인
+        if(rs.next()){
+        	result = rs.getInt(1); // 1번 컬럼 결과를 result에 대입
+        	
+        }
+		
+		
+	}finally {
+		close(rs);
+		close(pstmt);
+	}
+	
+	return result;
+}
+
 }
