@@ -3,6 +3,7 @@ package edu.kh.community.member.model.service;
 import static edu.kh.community.common.JDBCTemplate.*;
 
 import java.sql.Connection;
+import java.util.List;
 
 import edu.kh.community.member.model.dao.MemberDAO;
 import edu.kh.community.member.model.vo.Member;
@@ -45,6 +46,9 @@ public class MemberService {
 		Connection conn = getConnection();
 		
 		int result = dao.signUp(conn, mem);
+		if(result > 0)commit(conn);
+		else 		  rollback(conn);
+		
 		close(conn);
 		
 		return result;
@@ -130,7 +134,57 @@ public class MemberService {
 		
 		return result;
 	}
-	
+
+	/** 닉네임 중복 검사 Service
+	 * @param memberNickname
+	 * @return result
+	 * @throws Exception
+	 */
+	public int nicknameDupCheck(String memberNickname) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int result = dao.nicknameDupCheck(conn, memberNickname);
+		
+		close(conn);
+		
+		
+		return result;
+	}
+
+	/** 이메일이 일치하는 회원 정보 조회
+	 * @param memberEmail
+	 * @return result
+	 * @throws Exception
+	 */
+	public Member selectOne(String memberEmail) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		Member member = dao.selectOne(conn, memberEmail);
+		
+		close(conn);
+		
+		return member;
+	}
+
+
+
+	/** 회원 목록 조회 Service
+	 * @param members
+	 * @return members
+	 * @throws Exception
+	 */
+	public List<Member> selectAll() throws Exception {
+		
+		Connection conn = getConnection();
+		
+		List<Member>members = dao.selectAll(conn);
+		
+		close(conn);
+		
+		return members;
+	}
 	
 
 }

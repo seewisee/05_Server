@@ -28,6 +28,7 @@ public class EmailDupCheckServlet extends HttpServlet {
 			MemberService service = new MemberService();
 			
 			int result = service.emailDupCheck(memberEmail);
+
 			
 			// 보통 동기식 코드 작성 시
 			// forward 또는 redirect를 이용해서 새로운 페이지가 보이게 동작함.
