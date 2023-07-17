@@ -83,7 +83,7 @@ public class SignUpServlet extends HttpServlet {
 			}
 			
 			
-			resp.sendRedirect(req.getContextPath());
+			resp.sendRedirect(req.getContextPath()); 
 			
 			
 			

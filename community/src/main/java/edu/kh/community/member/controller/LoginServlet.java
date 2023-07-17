@@ -23,16 +23,15 @@ public class LoginServlet extends HttpServlet {
 		// -> 한글 깨짐 -> 문자 인코딩 변경 필요
 		//req.setCharacterEncoding("UTF-8");
 		
-		// * 모든 doPost() 메소드에 인코딩 변경 코드를 작성해야함.. (귀찮..)
+		// * 모든 doPost() 메소드에 인코딩 변경 코드를 작성해야함.. (귀찮..)                                                          
 		// -> 모든 요청 (전달 방식 가리지 않음) 시 req, resp의 문자 인코딩을 UTF-8로 변경
-		// -> 필터(Filter)
-		
-		
-		// 전달된 파라미터 변수에 저장
-		String inputEmail = req.getParameter("inputEmail");
-		String inputPw = req.getParameter("inputPw");
-		
-		System.out.println(inputEmail);
+		// -> 필터(Filter)                                   
+		              
+		                  
+		// 전달된 파라미터 변수에 저장                          
+		String inputEmail = req.getParameter("inputEmail");                                             
+		String inputPw = req.getParameter("inputPw");                       
+		System.out.println(inputEmail);                                                                                                                                                                                                                                 
 		System.out.println(inputPw);
 		
 		
@@ -113,7 +112,7 @@ public class LoginServlet extends HttpServlet {
 				// 해당 쿠키 파일이 적용될 주소를 지정
 				c.setPath(req.getContextPath());
 				// req.getContectPath() : 최상위 주소(/community)
-				// -> /community로 시작하는 주소에서만 쿠키 적용
+				// -> /community로 시작하는 주소에서만 쿠키 적용                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
 				
 				// 응답 객체를 이용해서 클라이언트로 전달
 				resp.addCookie(c); // 코드가 해석되는 순간 바로 전달

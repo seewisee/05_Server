@@ -88,7 +88,7 @@ memberEmail.addEventListener("input", function(){
 
                 // 매개변수 result : servlet에서 출력된 result값이 담겨있음
                 //console.log(result);
-                if(result == 1){ // 중복 O
+                if(result == 1){ // 중복 O                                    
                     emailMessage.innerText = "이미 사용중인 이메일 입니다.";
                     emailMessage.classList.add("error");
                     emailMessage.classList.remove("confirm");

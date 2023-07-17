@@ -69,7 +69,7 @@ public class SelectOneServlet extends HttpServlet{
 			
 			// 3) GSON 라이브러리를 이용한 Java 객체 -> JSON 변환
 			
-			// new Gson().toJso(객체, 응답스트림);
+			// new Gson().toJson(객체, 응답스트림);
 			// -> 매개변수에 작성된 객체를 JSON 형태로 변환한 후 스트림을 통해서 출력
 			
 			
