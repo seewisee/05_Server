@@ -8,6 +8,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +26,8 @@
     <main>
 
         <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+
+ 
 
         <section class="board-list">
 
@@ -61,7 +64,7 @@
                                     <tr>
                                         <td>${board.boardNo}</td>
                                         <td>
-                                            <a href="#">${board.boardTitle}</a>
+                                            <a href="detail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}">${board.boardTitle}</a>
                                         </td>
                                         <td>${board.memberNickname}</td>
                                         <td>${board.createDate}</td>
@@ -69,7 +72,6 @@
                                     </tr>
 
                                 </c:forEach>
-
 
                             </c:otherwise>
 
@@ -131,13 +133,9 @@
 
                 <input type="text" name="query" placeholder="검색어를 입력해주세요.">
                 <button>검색</button>
-
             </form>
-
-
         </section>
     </main>
-
      <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     
 </body>

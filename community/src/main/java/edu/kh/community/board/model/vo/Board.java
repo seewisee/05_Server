@@ -19,5 +19,7 @@ public class Board {
    private int readCount;
    private String thumbnail;
    
+   
 
+   
 }
