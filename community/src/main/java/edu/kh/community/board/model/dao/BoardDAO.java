@@ -145,9 +145,7 @@ public class BoardDAO {
       } finally {
          close(rs);
          close(pstmt);
-
       }
-      
       
       return boardList;
    }

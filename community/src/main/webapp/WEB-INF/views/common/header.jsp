@@ -24,7 +24,7 @@
       			  
       			   --%>
       	
-      <img src="/community/resources/images/KakaoTalk_20230613_140545288.jpg" id="home-logo">
+      <img src="/community/resources/images/logo.jpg" id="home-logo">
       </a>
       
    </section>

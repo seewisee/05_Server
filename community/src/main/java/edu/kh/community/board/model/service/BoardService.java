@@ -55,7 +55,7 @@ public class BoardService {
       
       
       
-      return map; //Map 객체 반
+      return map; //Map 객체 반환
    }
 
 /** 게시글 상세 조회 Service

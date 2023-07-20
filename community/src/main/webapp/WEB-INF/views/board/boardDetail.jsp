@@ -14,6 +14,8 @@
 
 <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
 
+<link rel="stylesheet" href="${contextPath}/resources/css/reply-style.css">
+
 <script src="https://kit.fontawesome.com/9e4edd12dc.js" crossorigin="anonymous"></script>
 </head>
 
@@ -124,14 +126,50 @@
                     <button id="deleteBtn">삭제</button>
                 </c:if>
 
+                <!-- onclick="history.back();" 뒤로 가기 
+                    history.go(숫자) : 양수(앞으로 가기), 음수(뒤로 가기)
+                -->
 
                 <button id="goToListBtn">목록으로</button>
 
             </div>
         </section>
+        <!-- 댓글 -->
+        <jsp:include page="/WEB-INF/views/board/reply.jsp"></jsp:include>
     </main>
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
+    <!-- jQuery 추가 -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+    <script src="${contextPath}/resources/js/board/board.js"></script>
+
+    <script>
+        // 댓글 관련 JS 코드에 필요한 값을 전역 변수로 선언
+        
+        // jsp 파일 : html, css, js, el, jstl 사용 가능
+        // js 파일 : js
+
+        // 코드 해석 순서 : EL == JSTL > HTML > JS
+
+        // ** JS 코드에서 EL/JSTL을 작성하게 된다면 반드시 ""를 양쪽에 추가 **
+
+        // 최상위 주소
+        const contextPath = "${contextPath}";
+
+        // 게시글 번호
+        const boardNo = "${detail.boardNo}"; // "500"
+
+        // 로그인한 회원 번호
+        const loginMemberNo = "${loginMember.memberNo}";
+        // -> 로그인 O : "10";
+        // -> 로그인 X : ""; (빈문자열)
+
+    </script>
+        
+
+    <script src="${contextPath}/resources/js/board/reply.js"></script>
 </body>
 
 </html>

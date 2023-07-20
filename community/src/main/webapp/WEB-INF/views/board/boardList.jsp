@@ -137,6 +137,7 @@
         </section>
     </main>
      <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+    <script src="${contextPath}/resources/js/board/board.js"></script>
     
 </body>
 </html>
