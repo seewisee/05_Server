@@ -90,6 +90,14 @@
 }
 
 
+/* 댓글 수정 textarea */
+.update-textarea{
+    width: 100%;
+    height: 90px;
+    resize: none;
+}
+
+
 
 
 

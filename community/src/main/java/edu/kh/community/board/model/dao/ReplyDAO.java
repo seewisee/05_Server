@@ -68,13 +68,67 @@ public class ReplyDAO {
 				
 			}
 			
-			
 		}finally {
 			close(rs);
 			close(pstmt);
 		}
-		
 		return rList;
+	}
+
+	/** 댓글 등록
+	 * @param conn
+	 * @param reply
+	 * @return result
+	 * @throws Exception
+	 */
+	public int insertReply(Connection conn, Reply reply) throws Exception {
+		
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("insertReply");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, reply.getReplyContent());
+			pstmt.setInt(2, reply.getMemberNo());
+			pstmt.setInt(3, reply.getBoardNo());
+			
+			
+		result = pstmt.executeUpdate();
+			
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	/** 댓글 삭제
+	 * @param conn
+	 * @param replyNo
+	 * @return result
+	 * @throws Exception
+	 */
+	public int deleteReply(Connection conn, int replyNo) throws Exception {
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("deleteReply");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, replyNo);
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+			
+		}
+		
+		return result;
 	}
 
 	

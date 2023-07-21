@@ -163,7 +163,7 @@
 
         // 로그인한 회원 번호
         const loginMemberNo = "${loginMember.memberNo}";
-        // -> 로그인 O : "10";
+        // -> 로그인 O : "10"; 
         // -> 로그인 X : ""; (빈문자열)
 
     </script>
