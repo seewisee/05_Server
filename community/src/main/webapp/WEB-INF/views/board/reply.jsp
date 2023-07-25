@@ -18,7 +18,7 @@
                                     <img src="${contextPath}/resources/images/user.png">
                                 </c:if>
 
-                                <c:if test="${!empty reply.profileImage}">
+                                <c:if test="${!empty reply.profileImage}"> 
                                     <!-- 프로필 이미지가 있을 경우 -->
                                     <img src="${contextPath}${reply.profileImage}">
                                 </c:if>
@@ -35,19 +35,10 @@
                                     <button onclick="showUpdateReply(${reply.replyNo}, this)">수정</button>
                                     <button onclick="deleteReply(${reply.replyNo})">삭제</button>
                                 </div>
-
                             </c:if>
                         </li>
                     </c:forEach>
-
-                    <li class="reply-row">
-                       <textarea class="update-textarea">기존 댓글 내용</textarea>
-
-                        <div class="reply-btn-area">
-                            <button onclick="showUpdateReply(${reply.replyNo}, this)">수정</button>
-                            <button>삭제</button>
-                        </div>
-                    </li>
+                   
                 </ul>
             </div>
 

@@ -6,13 +6,15 @@
 	사이드메뉴
 
 	<ul class="list-group">
-		<li><a href="#">프로필</a></li>
+		<!-- /community/member/myPage/profile -->
+		<li><a href="${contextPath}/member/myPage/profile">프로필</a></li>
 		
 		<!-- /community/member/myPage/info  -->
 		<li><a href="${contextPath}/member/myPage/info">내 정보</a></li>
 		
 		<!-- /community/member/myPage/changePw  -->
 		<li><a href="${contextPath}/member/myPage/changePw">비밀번호 변경</a></li>
+
 		<li><a href="${contextPath}/member/myPage/secession">회원 탈퇴</a></li>
 	</ul>
 

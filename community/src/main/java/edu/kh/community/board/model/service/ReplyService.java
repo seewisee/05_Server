@@ -86,4 +86,22 @@ public class ReplyService {
 		return result;
 	}
 
+	public int updateReply(int replyNo, String replyContent) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		replyContent = Util.XSSHandling(replyContent);
+		
+		replyContent = Util.newLineHandling(replyContent);
+		
+		int result = dao.updateReply(conn, replyNo, replyContent);
+		
+		if(result > 0) commit(conn);
+		else rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
 }

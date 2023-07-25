@@ -29,7 +29,10 @@ WHERE REPLY_NO = ?
 </entry>
 
 
-
+<entry key = "updateReply">
+UPDATE REPLY SET REPLY_CONTENT = ?
+WHERE REPLY_NO = ?
+</entry>
 
 
 
