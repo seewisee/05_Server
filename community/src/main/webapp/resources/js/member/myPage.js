@@ -171,16 +171,52 @@ if(inputImage != null){ // inputImage 요소가 화면에 존재할 때
                 profileImage.setAttribute("src", e.target.result);
                 // -> setAttribute() 호출 시 중복되는 속성이 존재하면 덮어쓰기
 
-
+                document.getElementById("delete").value = 0;
+                // 새로운 이미지가 선택 되었기 떄문에 1 -> 0(안눌러짐 상태)로 변경
+                
 
             }
         } 
-
     });
-    
 }
 
 
+function profileValidate(){
+
+    const inputImage = document.getElementById("input-image");
+
+    const del = document.getElementById("delete"); // hidden 타입
+
+    if(inputImage.value == "" && del.value == 0){ 
+        // 빈문자열 == 파일 선택 X / del의 값이 0 == x를 누르지도 않았다
+        // -> 아무것도 안하고 변경버튼을 클릭한 경우
+        alert("이미지를 선택한 후 변경 버튼을 클릭해주세요.");
+        return false;
+    }
+    
+    return true;
+
+}
+
+//  프로필 이미지 옆 X버튼 클릭 시
+document.getElementById("delete-image").addEventListener("click", function(){
+    // 0: 안눌러짐
+    // 1: 눌러짐
+
+    const del = document.getElementById("delete");
+
+    if(del.value == 0){ // 눌러지지 않은 경우
+        
+            // 1) 프로필 이미지를 기본 이미지로 변경
+            document.getElementById("profile-image").setAttribute("src", contextPath + "/resources/images/user.png");
+        
+            // 2) input type = "file"에 저장된 값(value)에 "" 대입
+            document.getElementById("input-image").value = "";
+
+            del.value = 1; // 눌러진걸로 인식
+
+    }
 
 
 
+});
