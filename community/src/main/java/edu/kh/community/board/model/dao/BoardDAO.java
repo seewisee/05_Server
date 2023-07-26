@@ -235,5 +235,99 @@ public List<BoardImage> selectImageList(Connection conn, int boardNo) throws Exc
 	
 	return imageList;
 }
+
+/** 다음 게시글 번호 조회
+ * @param conn
+ * @return boardNo
+ * @throws Exception
+ */
+public int nextBoardNo(Connection conn) throws Exception {
+	
+	int boardNo = 0;
+	
+	
+	try {
+		String sql = prop.getProperty("nextBoardNo");
+		
+		stmt = conn.createStatement();
+		
+		rs = stmt.executeQuery(sql);
+		
+		if(rs.next()) {
+			boardNo = rs.getInt(1);
+		}
+		
+	}finally {
+		close(rs);
+		close(stmt);
+	}
+	
+	
+	return boardNo;
+}
+
+/** 게시글 삽입
+ * @param conn
+ * @param detail
+ * @param boardCode
+ * @return result
+ * @throws Exception
+ */
+public int insertBoard(Connection conn, BoardDetail detail, int boardCode) throws Exception{
+	
+	int result = 0;
+	
+	try {
+		String sql = prop.getProperty("insertBoard");
+		
+		pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setInt(1, detail.getBoardNo());
+        pstmt.setString(2, detail.getBoardTitle());
+        pstmt.setString(3, detail.getBoardContent());
+        pstmt.setInt(4, detail.getMemberNo());
+        pstmt.setInt(5, boardCode);
+        
+        result = pstmt.executeUpdate();
+		
+		
+	}finally {
+		close(pstmt);
+	}
+	
+	return result;
+}
+
+
+/** 게시글 이미지 삽입
+ * @param conn
+ * @param image
+ * @return result
+ * @throws Exception
+ */
+public int insertBoardImage(Connection conn, BoardImage image) throws Exception {
+	int result = 0;
+	
+	try {
+		
+		String sql = prop.getProperty("insertBoardImage");
+		
+		pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setString(1, image.getImageRename());
+        pstmt.setString(2, image.getImageOriginal());
+        pstmt.setInt(3, image.getImageLevel());
+        pstmt.setInt(4, image.getBoardNo());
+
+        result = pstmt.executeUpdate();
+        
+        
+	}finally {
+		close(pstmt);
+	}
+	
+	
+	return result;
+}
    
 }

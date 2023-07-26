@@ -1,4 +1,4 @@
-// 상세조회 - 목록으로 버튼
+// 상세조회, 게시글 작성 - 목록으로 버튼
 
 (function(){
  const goToListBtn = document.getElementById("goToListBtn");
@@ -31,7 +31,15 @@
             const params = new URL(location.href).searchParams;
 
             const type = "type=" + params.get("type"); // type=1
-            const cp = "cp" + params.get("cp"); // cp=1
+            let cp;
+
+            if(params.get("cp") != ""){ // 쿼리 스트링에 cp가 있을 경우
+               cp = "cp=" + params.get("cp");
+
+            }else{
+                cp = "cp=1";
+            }
+            
 
             // 조립
             // /community/board/list?type=1&cp=1
@@ -40,6 +48,5 @@
             // location.href = "주소"; -> 해당 주소로 이동
             location.href = url;
         });
-
     }
 })();

@@ -88,6 +88,12 @@
 	UPDATE MEMBER SET PROFILE_IMG = ?
 	WHERE MEMBER_NO = ?
 	</entry>
+	
+	
+	<!-- 댓글 등록  -->
+	<entry key ="insertReply">
+	INSERT INTO REPLY VALUES(SEQ_REPLY_NO.NEXTVAL, ?, SYSDATE, ?, ?)
+	</entry>
 
 
 </properties>
