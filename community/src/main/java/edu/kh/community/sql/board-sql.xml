@@ -79,7 +79,27 @@
 	<!-- 게시글 이미지 삽입 -->
 	<entry key="insertBoardImage">
 		INSERT INTO BOARD_IMG
-		VALUES(SEQ_IMG_NO.NEXTVAL, ?, ?, ?, ?)
+		VALUES(SEQ_IMG_NO.NEXTVAL, ?, ?,
+		?, ?)
 	</entry>
 
+
+	<entry key="updateBoard">
+		UPDATE BOARD SET BOARD_CONTENT = ?,
+		BOARD_TITLE = ?, UPDATE_DT = SYSDATE
+		WHERE BOARD_NO = ?
+	</entry>
+
+	<entry key="updateImg">
+		UPDATE BOARD_IMG SET IMG_RENAME = ?,
+		IMG_ORIGINAL = ?
+		WHERE BOARD_NO = ? AND IMG_LEVEL = ?
+	</entry>
+
+	<entry key="deleteBoardImage">
+		DELETE FROM BOARD_IMG
+		WHERE BOARD_NO = ?
+		AND IMG_LEVEL IN(
+
+	</entry>
 </properties>
