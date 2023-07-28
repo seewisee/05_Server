@@ -46,7 +46,7 @@ function selectReplyList() {
                 // 작성일
                 const replyDate = document.createElement("span");
                 replyDate.classList.add("reply-date");
-                replyDate.innerText - "(" + reply.createDate + ")";
+                replyDate.innerText = "(" + reply.createDate + ")";
 
                 // 작성자 영역(p)에 프로필, 닉네임, 작성일 마지막 자식으로 추가
                 replyWriter.append(profileImage, memberNickname, replyDate);
